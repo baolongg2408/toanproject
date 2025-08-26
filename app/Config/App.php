@@ -17,7 +17,10 @@ class App extends BaseConfig
      * E.g., http://example.com/
      */
     public string $baseURL = 'http://localhost:8080/';
+<<<<<<< HEAD
     
+=======
+>>>>>>> feature/source-upload
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
@@ -41,7 +44,11 @@ class App extends BaseConfig
      * something else. If you have configured your web server to remove this file
      * from your site URIs, set this variable to an empty string.
      */
+<<<<<<< HEAD
     public string $indexPage = '';
+=======
+    public string $indexPage = 'index.php';
+>>>>>>> feature/source-upload
 
     /**
      * --------------------------------------------------------------------------
@@ -134,8 +141,12 @@ class App extends BaseConfig
      * @see https://www.php.net/manual/en/timezones.php for list of timezones
      *      supported by PHP.
      */
+<<<<<<< HEAD
     public string $appTimezone = 'Asia/Ho_Chi_Minh';
 
+=======
+    public string $appTimezone = 'UTC';
+>>>>>>> feature/source-upload
 
     /**
      * --------------------------------------------------------------------------
