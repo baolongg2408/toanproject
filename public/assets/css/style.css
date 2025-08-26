@@ -1,0 +1,231 @@
+/* ===== Light theme variables ===== */
+:root {
+  --bg: #f8f9fa; --panel:#fff; --text:#212529; --muted:#6c757d;
+  --accent:#0d6efd; --border:#e5e7eb; --radius:16px;
+}
+body {
+    background: var(--bg);
+    color: var(--text);
+    background-image: url('/photo_portfolio/public/assets/images/background.png');
+}
+
+/* Header sáng, vẫn sticky */
+.appbar {
+    z-index: 20;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, .85);
+    border-bottom: 1px solid var(--border);
+}
+
+.appbar-title {
+    font-weight: 700;
+    color: var(--text);
+}
+
+.icon-btn {
+    background: #fff;
+    border: 1px solid var(--border);
+}
+
+.icon-btn i {
+    color: var(--text);
+}
+
+/* Topic bar sáng */
+.topic-bar {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, #fff, #f8f9fa);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height .25s ease, opacity .2s ease;
+}
+
+.topic-bar.open {
+    max-height: 100px;
+    opacity: 1;
+}
+
+.chip-link {
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text) !important;
+    line-height: 1.2;
+}
+
+.chip-link:hover {
+    border-color: var(--accent);
+}
+
+/* Intro block sáng + cách header một đoạn */
+.appbar+.intro-hero {
+    margin-top: 2rem;
+}
+
+.intro-hero {
+    padding-block: clamp(48px, 8vw, 110px);
+    color: var(--text);
+    border-radius: var(--radius);
+}
+
+.intro-meta {
+    color: var(--muted);
+}
+
+.intro-title {
+    font-size: clamp(56px, 10vw, 140px);
+    line-height: 1;
+    letter-spacing: .02em;
+}
+
+.intro-author .intro-name {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+}
+.fx-kenburns::before{
+  content:"";  z-index:0;
+  background-image: var(--intro-bg);
+  background-size: cover; background-position: center;
+  transform: scale(1.05);
+  animation: ken 18s ease-in-out infinite alternate;
+  filter: brightness(0.85) saturate(110%);
+}
+.fx-kenburns::after{ content:""; background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.45)); }
+@keyframes ken {
+  0%   { transform: scale(1.05) translate3d(-2%, -2%, 0); }
+  100% { transform: scale(1.12) translate3d(2%, 2%, 0); }
+}
+
+
+.hero-overlay {
+    display: grid;
+    place-content: end start;
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, .45) 100%);
+}
+
+.hero-overlay h1,
+.hero-overlay p {
+    color: #fff;
+}
+
+/* Carousel khung sáng, nội dung gọn */
+.border-frame {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.frame-inner {
+    padding-inline: 16px;
+}
+
+.frame-inner>.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.hero-carousel {
+    max-width: 100%;
+}
+
+.hero-carousel .carousel-item img {
+    height: clamp(160px, 28vh, 320px);
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1) grayscale(1);
+}
+
+.carousel-indicators {
+    bottom: 10px;
+}
+
+/* Featured: dùng thẻ card màu sáng đồng bộ */
+.card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: transform .2s, box-shadow .2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+}
+
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Footer sáng */
+.site-footer {
+    border-top: 1px solid var(--border);
+    background:linear-gradient(rgba(255,255,255,.85), rgba(255,255,255,.85)),
+     url('/photo_portfolio/public/assets/images/bgfooter.png') center/cover no-repeat;
+    color: #495057;
+}
+
+.copy {
+    color: #6c757d;
+}
+
+/* Link màu primary */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0b5ed7;
+}
+
+#particles-js{
+  position: fixed; inset: 0; width:100%; height:100%;
+  z-index: 0; pointer-events: none;
+}
+.site-root{ position: relative; z-index: 1; }
+/* Chỉ áp cho brand trên navbar */
+.navbar-brand.brand{
+  font-family: "Quicksand", "Be Vietnam Pro", Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;                          /* mềm hơn 800 */
+  font-size: clamp(20px, 2.4vw, 32px);
+  line-height: 1.1;
+  letter-spacing: 0.3px;                     /* giãn nhẹ cho êm mắt */
+  color: var(--text) !important;
+  margin: 0; padding: 0;
+}
+
+/* Đổi xanh riêng cho phần ToanDesign */
+.navbar-brand.brand .brand-mark{
+  color: #22a5c5;         /* xanh emerald dịu */
+  font-weight: 700;
+}
+
+/* Hover tinh tế cho brand-mark */
+.navbar-brand.brand:hover .brand-mark{
+  color: #0b3fb8;
+}
+
+/* Mobile nhỏ hơn chút */
+@media (max-width: 576px){
+  .navbar-brand.brand{ font-size: clamp(18px, 5.2vw, 24px); }
+}
+
+.appbar{
+  /* position: sticky; top:0;  <-- bỏ */
+  z-index: 1030;                         /* nổi cao hơn các phần khác */
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,.85);
+  border-bottom: 1px solid var(--border);
+}
+

@@ -1,0 +1,30 @@
+# --- CodeIgniter 4 on AwardSpace/CGI-safe .htaccess ---
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Bỏ qua file/thư mục thật
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # (Tùy chọn) Xóa dấu / cuối cùng
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ $1 [R=301,L]
+
+  # (Tùy chọn) www -> non-www (giữ http/https hiện tại)
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # QUAN TRỌNG: dùng query-string, tránh PATH_INFO (fix "No input file specified.")
+  RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+
+  # Giữ Authorization header
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+  ErrorDocument 404 /index.php
+</IfModule>

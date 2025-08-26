@@ -1,0 +1,9 @@
+[package]
+name = "photo_portfolio"
+version = "0.1.0"
+
+[build]
+command = "composer install --no-dev --optimize-autoloader"
+
+[runner]
+command = "php -S 0.0.0.0:8080 -t public"
