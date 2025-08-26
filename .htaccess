@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Bỏ dấu / cuối URL
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ $1 [L,R=301]
+
+  # Không rewrite nếu là file/thư mục thật
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # QUAN TRỌNG: dùng query string, tránh PATH_INFO (hợp với host free)
+  RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+</IfModule>
